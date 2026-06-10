@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
 
+const CLINIC_LAT = 28.218049684236465;
+const CLINIC_LNG = 83.98672022697428;
+const CLINIC_COORDS = `${CLINIC_LAT},${CLINIC_LNG}`;
+const GOOGLE_MAPS_URL = `https://www.google.com/maps?q=${CLINIC_COORDS}`;
+const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps?q=${CLINIC_COORDS}&hl=en&z=17&output=embed`;
+const GOOGLE_MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${CLINIC_COORDS}`;
+
 export default function LocationSection() {
   return (
     <section className="py-20 lg:py-28 bg-white">
@@ -31,25 +38,25 @@ export default function LocationSection() {
             transition={{ duration: 0.6 }}
             className="rounded-2xl overflow-hidden shadow-xl border border-slate-100 bg-slate-200 min-h-[350px] relative"
           >
-            {/* Simulated map with clinic marker */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-300 to-slate-200 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-medical-red flex items-center justify-center mx-auto shadow-lg animate-pulse-glow">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <p className="mt-4 text-navy font-bold text-lg">Pokhara Gastro Liver Center</p>
-                <p className="text-slate-500 text-sm">Pokhara-8, Newroad, Kaski</p>
-                <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow text-sm text-navy font-medium">
-                  <svg className="w-4 h-4 text-medical-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                  View on Google Maps
-                </div>
-              </div>
-            </div>
+            <iframe
+              title="Pokhara Gastro Liver Center location on Google Maps"
+              src={GOOGLE_MAPS_EMBED_URL}
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-lg text-sm text-navy font-medium hover:bg-slate-50 transition-colors"
+            >
+              <svg className="w-4 h-4 text-medical-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+              View on Google Maps
+            </a>
           </motion.div>
 
           {/* Contact Details */}
@@ -114,7 +121,7 @@ export default function LocationSection() {
                 </svg>
                 WhatsApp
               </a>
-              <a href="https://maps.google.com/?q=Pokhara+Gastro+Liver+Center+Pokhara-8+Newroad+Kaski" target="_blank" rel="noopener noreferrer" className="btn-outline-navy">
+              <a href={GOOGLE_MAPS_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="btn-outline-navy">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
