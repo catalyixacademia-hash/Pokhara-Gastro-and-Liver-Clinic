@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import drPhoto from "../assets/dr-shankar-baral.png";
 
 export default function DoctorCard() {
   return (
@@ -14,14 +15,13 @@ export default function DoctorCard() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-navy via-navy-dark to-slate-900 aspect-[4/5] flex items-center justify-center">
-              <div className="text-center p-8">
-                {/* Doctor silhouette/avatar */}
-                <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center mb-6 border-2 border-white/10">
-                  <svg className="w-20 h-20 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
+              <img
+                src={drPhoto}
+                alt="Dr. Shankar Baral - Consultant Gastroenterologist and Hepatologist"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/95 via-navy/70 to-transparent p-8 pt-24 text-center">
                 <h3 className="text-2xl font-bold text-white font-heading">Dr. Shankar Baral</h3>
                 <p className="text-teal-light text-sm mt-1">DM Gastroenterology</p>
               </div>

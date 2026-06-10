@@ -1,26 +1,30 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import heroBg from "../assets/hero-bg.png";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 gradient-navy">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-60"></div>
-        <div className="absolute -top-1/2 -right-1/2 w-[800px] h-[800px] rounded-full bg-medical-red/20 blur-[120px]"></div>
-        <div className="absolute -bottom-1/2 -left-1/2 w-[600px] h-[600px] rounded-full bg-teal-accent/10 blur-[100px]"></div>
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center lg:object-right"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/75 to-navy/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-navy/30" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Text Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center lg:text-left max-w-2xl"
+        >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -100,51 +104,7 @@ export default function HeroSection() {
                 Advanced Technology
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Visual Column */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="hidden lg:flex justify-center items-center"
-          >
-            <div className="relative">
-              {/* Animated circles */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[350px] h-[350px] rounded-full border border-white/10 animate-pulse"></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[280px] h-[280px] rounded-full border border-white/5 animate-pulse" style={{ animationDelay: "0.5s" }}></div>
-              </div>
-              
-              {/* Central visual */}
-              <div className="relative w-72 h-72 glass-card flex items-center justify-center animate-float">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-medical-red to-navy flex items-center justify-center shadow-2xl">
-                    <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      {/* Stomach/liver icon */}
-                      <path d="M12 2a4 4 0 014 4c0 3-4 6-4 6s-4-3-4-6a4 4 0 014-4z" strokeLinecap="round"/>
-                      <path d="M8 12c0 0 0 8 4 8s4-8 4-8" strokeLinecap="round"/>
-                      <circle cx="12" cy="6" r="1.5" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  <h3 className="mt-6 text-white font-heading font-bold text-xl">Digestive Health</h3>
-                  <p className="mt-2 text-white/60 text-sm">Advanced GI &amp; Liver Care</p>
-                  
-                  {/* Small service badges */}
-                  <div className="mt-6 flex flex-wrap gap-2 justify-center">
-                    {["Endoscopy", "Colonoscopy", "ERCP", "Fibroscan"].map((s) => (
-                      <span key={s} className="px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs border border-white/10">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Wave bottom */}

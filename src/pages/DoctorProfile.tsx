@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import CTASection from "../components/CTASection";
+import drPhoto from "../assets/dr-shankar-baral.png";
 
 export default function DoctorProfile() {
   return (
@@ -41,10 +42,12 @@ export default function DoctorProfile() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex justify-center"
             >
-              <div className="w-64 h-80 rounded-2xl bg-gradient-to-br from-white/15 to-white/5 border border-white/20 flex items-center justify-center">
-                <svg className="w-24 h-24 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-72 md:w-80 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                <img
+                  src={drPhoto}
+                  alt="Dr. Shankar Baral - Consultant Gastroenterologist and Hepatologist"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
             </motion.div>
           </div>
