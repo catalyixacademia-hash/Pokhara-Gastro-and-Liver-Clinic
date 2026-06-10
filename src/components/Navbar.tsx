@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import logoIcon from "../assets/logo-icon.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -47,10 +48,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className={`w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-medical-red flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl ${isScrolled ? '' : 'shadow-navy/30'}`}>
-              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className={`w-11 h-11 rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-xl ${isScrolled ? '' : 'shadow-navy/30'}`}>
+              <img
+                src={logoIcon}
+                alt="Pokhara Gastro Liver Center"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="hidden sm:block">
               <p className={`text-sm font-bold leading-tight transition-colors ${isScrolled ? 'text-navy' : 'text-white'}`}>
